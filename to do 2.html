@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do 2</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 200px auto;
+            background-color: rgb(40, 175, 209);
+        }
+     .Container{
+         height: auto;
+         background-color: rgb(61, 241, 7);
+         padding: 20px;
+         border-radius: 20px;
+     }
+     h1{
+         text-align: center;
+     }
+     #addToDo{
+         background-color: rgb(100, 237, 225);
+         height: 35px;
+         width:50px ;
+         border: none;
+         font-size: 30px;
+         position: relative;
+         top: 5px;
+         border-radius: 0px 10px 10px 0px ;
+     }
+     #inputField{
+         width: 160px;
+         height: 33px;
+         border: none;
+         border-radius: 10px 0px 0px 10px;
+     }
+    .Container.para{
+         position: absolute;
+         top: 260px;
+         border-radius: 30px;
+         color: wheat;
+         padding: 10px;
+     }
+     .para{
+         background-color: brown;
+         border-radius: 10px;
+         color: wheat;
+         padding: 10px;
+     }
+    </style>
+</head>
+<body>
+    <div class="Container">
+        <h1>To do list</h1>
+        <input type="text" name="" id="inputField"><button id="addToDo">+</button>
+        <div class="to-dos" id="toDoContainer"></div>
+        <p class="para">* single click to mark as done tast <br> * double click to clear the task</p>
+    </div>
+    <script>
+       let addToDoButton = document.getElementById('addToDo')
+       let toDoContainer = document.getElementById('toDoContainer')
+       let inputField = document.getElementById('inputField')
+    //    let para = document.getElementsByClassName('para')
+
+       addToDoButton.addEventListener('click', function(){
+           var paragraph = document.createElement('p')
+        //    paragraph.classList.add('')
+           paragraph.innerText = inputField.value;
+           toDoContainer.appendChild(paragraph);
+           inputField.value = " "
+        paragraph.addEventListener('click',function(){
+              paragraph.style.textDecoration = "line-through"
+              
+        })
+        paragraph.addEventListener('dblclick',function(){
+            toDoContainer.removeChild(paragraph);
+        })
+    })
+    </script>
+</body>
+</html>
